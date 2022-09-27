@@ -33,7 +33,7 @@ class ProductController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-
+        $request = $this->validateRequest($request);
         $request = $this->convert($request);
         $product = new Product;
         $product = $this->addAttributesToProduct($request, $product);
@@ -65,6 +65,7 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product): RedirectResponse
     {
+        $request = $this->validateRequest($request);
         $request = $this->convert($request);
         $product = $this->addAttributesToProduct($request, $product);
         $product->save();
@@ -108,5 +109,15 @@ class ProductController extends Controller
         $product->quantity = $request->quantity;
 
         return $product;
+    }
+
+    public function validateRequest(Request $request)
+    {
+        $request->validate([
+            "name" => "required",
+            "price" => "required | integer | min:1"
+        ]);
+
+        return $request;
     }
 }

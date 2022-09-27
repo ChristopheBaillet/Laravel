@@ -1,5 +1,12 @@
 @extends('layout')
 @section('content')
+    @if (\Session::has('error'))
+        <div class="alert alert-danger">
+            <ul>
+                <li>{!! \Session::get('error') !!}</li>
+            </ul>
+        </div>
+    @endif
     <h1>Liste des produits</h1>
     <a href="{{route('product', ['order' => 'price'])}}" class="btn btn-primary">Order by Price</a>
     <a href="{{route('product', ['order' => 'name'])}}" class="btn btn-primary">Order by name</a>
