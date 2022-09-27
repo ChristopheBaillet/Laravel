@@ -18,7 +18,7 @@
                 <td>
                     <form action="{{route("categories.destroy", ['category' => $category])}}" method="post">
                         @method('DELETE')
-                        {{csrf_field()}}
+                        @csrf
                         <input type="submit" value="Delete" class="btn btn-outline-danger">
                     </form>
                 </td>

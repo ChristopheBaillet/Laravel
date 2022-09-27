@@ -12,7 +12,7 @@
         </tr>
         @foreach($orders as $order)
             <tr>
-                <td>{{$order->id}}</td>
+                <td><a href="{{route("orders.show", [$order->id])}}">{{$order->id}}</a></td>
                 <td>{{$order->number}}</td>
                 <td>{{$order->customer_id}}</td>
                 <td>{{$order->customer_name}}</td>
@@ -25,7 +25,7 @@
                 <td>
                     <form action="{{route("orders.destroy", ['order' => $order])}}" method="post">
                         @method('DELETE')
-                        {{csrf_field()}}
+                        @csrf
                         <input type="submit" value="Delete" class="btn btn-outline-danger">
                     </form>
                 </td>

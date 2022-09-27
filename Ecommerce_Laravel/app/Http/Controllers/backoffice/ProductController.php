@@ -19,12 +19,14 @@ class ProductController extends Controller
     public function index(): View
     {
         $products = Product::all();
+
         return view('backoffice.product.index', ['products' => $products]);
     }
 
     public function create(): View
     {
         $categories = Category::select('name')->get();
+
         return view("backoffice.product.create", ['categories' => $categories]);
     }
 
@@ -36,6 +38,7 @@ class ProductController extends Controller
         $product = new Product;
         $product = $this->addAttributesToProduct($request, $product);
         $product->save();
+
         return redirect(route('products.index'));
     }
 
@@ -55,6 +58,7 @@ class ProductController extends Controller
         }
         $product->category = Category::find($product->category_id)->name;
         $categories = Category::select('name')->get();
+
         return view("backoffice.product.edit", ["product" => $product, "categories" => $categories]);
     }
 
@@ -64,6 +68,7 @@ class ProductController extends Controller
         $request = $this->convert($request);
         $product = $this->addAttributesToProduct($request, $product);
         $product->save();
+
         return redirect(route('products.index'));
     }
 
@@ -71,6 +76,7 @@ class ProductController extends Controller
     public function destroy(Product $product): RedirectResponse
     {
         $product->delete();
+
         return redirect(route('products.index'));
     }
 
@@ -86,6 +92,7 @@ class ProductController extends Controller
         $request->weight = intval($request->weight);
         $request->discount = intval($request->discount);
         $request->quantity = intval($request->quantity);
+
         return $request;
     }
 
@@ -99,6 +106,7 @@ class ProductController extends Controller
         $product->available = $request->available;
         $product->discount = $request->discount;
         $product->quantity = $request->quantity;
+
         return $product;
     }
 }

@@ -11,8 +11,8 @@
             <label for="category" class="form-label">Category</label>
             <select class="form-select" id="category" name="category" required>
                 <option selected disabled>Choose...</option>
-                @foreach($categories as $categorie)
-                    <option>{{$categorie->name}}</option>
+                @foreach($categories as $category)
+                    <option>{{$category->name}}</option>
                 @endforeach
             </select>
         </div>

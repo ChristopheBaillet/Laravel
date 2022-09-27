@@ -4,6 +4,7 @@
 use App\Http\Controllers\backoffice\CategoryController;
 use App\Http\Controllers\backoffice\CustomerController;
 use App\Http\Controllers\backoffice\OrderController;
+use App\Http\Controllers\backoffice\OrderProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -32,5 +33,6 @@ Route::resource("products", BOProductController::class);
 Route::resource("orders", OrderController::class);
 Route::resource("customers", CustomerController::class);
 Route::resource("categories", CategoryController::class);
+Route::resource("order-products", OrderProductController::class);
 
 Route::get('/test', [CustomerController::class, 'test']);

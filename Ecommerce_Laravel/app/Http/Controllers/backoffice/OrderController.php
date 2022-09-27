@@ -45,7 +45,7 @@ class OrderController extends Controller
 
     public function show(Order $order)
     {
-        //
+        return view("backoffice.order.show", ["order" => $order]);
     }
 
 
@@ -53,6 +53,7 @@ class OrderController extends Controller
     {
         $customers = Customer::select('first_name')->get();
         $order->customer = Customer::select("first_name")->where("id", $order->customer_id)->get()[0]->first_name;
+
         return view("backoffice.order.edit", ["order" => $order, "customers" => $customers]);
     }
 

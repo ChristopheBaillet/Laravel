@@ -9,8 +9,7 @@
             <select name="customer" id="customer" class="form-select">
                 <option selected>{{$order->customer}}</option>
                 @foreach($customers as $customer)
-                    @if($order->customer == $customer->first_name)
-                    @else
+                    @if($order->customer !== $customer->first_name)
                         <option>{{$customer->first_name}}</option>
                     @endif
 

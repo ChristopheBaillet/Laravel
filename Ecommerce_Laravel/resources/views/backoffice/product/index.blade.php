@@ -32,7 +32,7 @@
                 <td>
                     <form style="margin: 0;" action="{{route("products.destroy", ['product' => $product])}}" method="post">
                         @method('DELETE')
-                        {{csrf_field()}}
+                        @csrf
                         <input type="submit" value="Delete" class="btn btn-outline-danger">
                     </form>
                 </td>

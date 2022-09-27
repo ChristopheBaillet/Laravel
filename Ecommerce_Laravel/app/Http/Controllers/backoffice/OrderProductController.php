@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\backoffice;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\OrderProduct;
 use Illuminate\Http\Request;
 
-class Order_ProductController extends Controller
+class OrderProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,7 @@ class Order_ProductController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -38,15 +40,9 @@ class Order_ProductController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+
     }
 
     /**

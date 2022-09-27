@@ -8,7 +8,6 @@
             <td>name</td>
             <td>price</td>
             <td>weight</td>
-            <td>category</td>
             <td>available</td>
             <td>quantity</td>
             <td>discount</td>
@@ -20,7 +19,6 @@
                 <td>{{$product->name}}</td>
                 <td>{{$product->price}}</td>
                 <td>{{$product->weight}}</td>
-                <td>{{$product->category->name}}</td>
                 <td>{{$product->available}}</td>
                 <td>{{$product->quantity}}</td>
                 <td>{{$product->discount}}</td>
